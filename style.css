@@ -1,0 +1,522 @@
+/* ========================================
+   DESIGN SYSTEM
+   ======================================== */
+
+:root {
+  /* Cores principais */
+  --cor-primaria: #176b5b;
+  --cor-secundaria: #2a9d8f;
+
+  /* Cores de destaque */
+  --cor-destaque: #f4a261;
+  --cor-acento: #e9c46a;
+
+  /* Cores neutras */
+  --cor-fundo: #f8f9fa;
+  --cor-superficie: #ffffff;
+  --cor-texto: #263238;
+  --cor-texto-secundario: #546e7a;
+  --cor-borda: #d9e2e1;
+
+  /* Estados */
+  --cor-sucesso: #2e7d32;
+  --cor-erro: #c62828;
+
+  /* Tipografia */
+  --fonte-pequena: 14px;
+  --fonte-base: 16px;
+  --fonte-h3: 20px;
+  --fonte-h2: 28px;
+  --fonte-h1: 36px;
+
+  /* Espaçamentos */
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 16px;
+  --espaco-4: 24px;
+  --espaco-5: 32px;
+  --espaco-6: 48px;
+  --espaco-7: 64px;
+
+  --raio: 8px;
+  --transicao: 0.3s ease;
+}
+
+/* ========================================
+   RESET
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-size: var(--fonte-base);
+  line-height: 1.6;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+header {
+  background-color: var(--cor-primaria);
+  color: var(--cor-superficie);
+  padding: var(--espaco-4) var(--espaco-6);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-4);
+}
+
+header h1 {
+  font-size: var(--fonte-h1);
+}
+
+/* ========================================
+   NAVEGAÇÃO
+   ======================================== */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--espaco-4);
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--cor-superficie);
+  text-decoration: none;
+  font-weight: 600;
+
+  transition:
+    color var(--transicao),
+    opacity var(--transicao);
+}
+
+nav a:hover {
+  color: var(--cor-acento);
+}
+
+nav a:focus {
+  outline: 3px solid var(--cor-acento);
+  outline-offset: 3px;
+}
+
+nav a:active {
+  opacity: 0.7;
+}
+
+nav a[aria-current="page"] {
+  color: var(--cor-acento);
+}
+
+/* ========================================
+   MAIN
+   GRID DE 12 COLUNAS
+   ======================================== */
+
+main {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+  padding: var(--espaco-6) 0;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--espaco-5);
+}
+
+main > section,
+main > form {
+  grid-column: span 12;
+}
+
+/* ========================================
+   SEÇÕES
+   ======================================== */
+
+section {
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: var(--espaco-5);
+}
+
+section h2 {
+  color: var(--cor-primaria);
+  font-size: var(--fonte-h2);
+  margin-bottom: var(--espaco-3);
+}
+
+section h3 {
+  color: var(--cor-secundaria);
+  font-size: var(--fonte-h3);
+  margin-bottom: var(--espaco-2);
+}
+
+section p {
+  margin-bottom: var(--espaco-3);
+}
+
+/* ========================================
+   IMAGENS
+   ======================================== */
+
+section img {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: var(--espaco-4) auto 0;
+  border-radius: var(--raio);
+}
+
+/* ========================================
+   PROJETOS
+   FLEXBOX NOS ARTIGOS
+   ======================================== */
+
+section:has(article) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-4);
+}
+
+section:has(article) h2 {
+  width: 100%;
+}
+
+article {
+  flex: 1 1 250px;
+
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: var(--espaco-4);
+}
+
+article p {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   FORMULÁRIO
+   ======================================== */
+
+form {
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: var(--espaco-5);
+}
+
+fieldset {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: var(--espaco-4);
+  margin-bottom: var(--espaco-5);
+}
+
+legend {
+  color: var(--cor-primaria);
+  font-size: var(--fonte-h3);
+  font-weight: bold;
+  padding: 0 var(--espaco-2);
+}
+
+form p {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+  margin-bottom: var(--espaco-4);
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+
+  font-family: inherit;
+  font-size: var(--fonte-base);
+  color: var(--cor-texto);
+
+  background-color: var(--cor-superficie);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+
+  transition:
+    border-color var(--transicao),
+    box-shadow var(--transicao);
+}
+
+/* ========================================
+   ESTADOS DOS CAMPOS
+   ======================================== */
+
+/* Estado de foco */
+input:focus,
+select:focus {
+  outline: none;
+
+  border-color: var(--cor-secundaria);
+
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
+}
+
+/* ========================================
+   VALIDAÇÃO CONTROLADA PELO JAVASCRIPT
+   ======================================== */
+
+/* Campo com erro */
+input.campo-erro,
+select.campo-erro {
+  border-color: var(--cor-erro) !important;
+}
+
+/* Campo válido */
+input.campo-sucesso,
+select.campo-sucesso {
+  border-color: var(--cor-sucesso) !important;
+}
+
+/* ========================================
+   BOTÃO
+   ======================================== */
+
+button {
+  border: 2px solid transparent;
+  border-radius: var(--raio);
+
+  padding: 12px 24px;
+
+  background-color: var(--cor-primaria);
+  color: var(--cor-superficie);
+
+  font-family: inherit;
+  font-size: var(--fonte-base);
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transicao),
+    border-color var(--transicao),
+    opacity var(--transicao),
+    transform var(--transicao);
+}
+
+button:hover {
+  background-color: var(--cor-secundaria);
+}
+
+button:focus {
+  outline: 3px solid var(--cor-acento);
+  outline-offset: 2px;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   BADGES
+   ======================================== */
+
+.badge {
+  display: inline-block;
+
+  padding: 6px 12px;
+  margin: var(--espaco-1);
+
+  background-color: var(--cor-acento);
+  color: var(--cor-texto);
+
+  border-radius: 20px;
+
+  font-size: var(--fonte-pequena);
+  font-weight: bold;
+}
+
+/* ========================================
+   ALERTA
+   ======================================== */
+
+.alert {
+  margin-top: var(--espaco-4);
+  padding: var(--espaco-4);
+
+  background-color: #fff3cd;
+  color: #664d03;
+
+  border: 1px solid var(--cor-acento);
+  border-radius: var(--raio);
+}
+
+/* ========================================
+   TOAST
+   ======================================== */
+
+.toast {
+  position: fixed;
+
+  right: var(--espaco-4);
+  bottom: var(--espaco-4);
+
+  padding: var(--espaco-3) var(--espaco-4);
+
+  background-color: var(--cor-sucesso);
+  color: var(--cor-superficie);
+
+  border-radius: var(--raio);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  z-index: 1000;
+}
+
+.toast[hidden] {
+  display: none;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+  min-height: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: var(--espaco-5);
+
+  background-color: var(--cor-primaria);
+  color: var(--cor-superficie);
+
+  text-align: center;
+}
+
+/* ========================================
+   BREAKPOINT 1 - 320px
+   ======================================== */
+
+@media (min-width: 320px) {
+  main {
+    width: 94%;
+  }
+}
+
+/* ========================================
+   BREAKPOINT 2 - 576px
+   ======================================== */
+
+@media (min-width: 576px) {
+  main {
+    width: 92%;
+  }
+}
+
+/* ========================================
+   BREAKPOINT 3 - 768px
+   ======================================== */
+
+@media (min-width: 768px) {
+  main {
+    width: 90%;
+  }
+
+  article {
+    flex: 1 1 250px;
+  }
+}
+
+/* ========================================
+   BREAKPOINT 4 - 992px
+   ======================================== */
+
+@media (min-width: 992px) {
+  main > section {
+    grid-column: span 6;
+  }
+
+  main > form {
+    grid-column: span 12;
+  }
+}
+
+/* ========================================
+   BREAKPOINT 5 - 1200px
+   ======================================== */
+
+@media (min-width: 1200px) {
+  main {
+    width: 1200px;
+  }
+}
+
+/* ========================================
+   TELAS MENORES
+   ======================================== */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--espaco-4);
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+    gap: var(--espaco-3);
+  }
+
+  main {
+    display: block;
+    width: 94%;
+  }
+
+  main > section,
+  main > form {
+    margin-bottom: var(--espaco-4);
+  }
+
+  section:has(article) {
+    flex-direction: column;
+  }
+
+  article {
+    width: 100%;
+  }
+
+  .toast {
+    left: var(--espaco-4);
+    right: var(--espaco-4);
+    text-align: center;
+  }
+}
